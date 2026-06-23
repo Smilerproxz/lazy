@@ -5,7 +5,7 @@ from typing import List
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from langchain_ollama import OllamaEmbeddings, Ollama
+from langchain_ollama import OllamaEmbeddings, OllamaLLM
 from langchain_chroma import Chroma
 
 # =========================
@@ -30,7 +30,7 @@ db = Chroma(
     embedding_function=embeddings
 )
 
-llm = Ollama(model="qwen2-coder:30b")
+llm = OllamaLLM(model="qwen2-coder:30b")
 
 
 # =========================
